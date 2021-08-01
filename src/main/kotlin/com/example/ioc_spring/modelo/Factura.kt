@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component
 @Setter
 class Factura {
     @Value("\${factura.desc}")
-    var descripcionFactura: String? = null
+    final var descripcionFactura: String? = null
 
     @Autowired
-    var cliente: Cliente? = null
+    final var cliente: Cliente? = null
 
     @Autowired
-    var listaItemFactura: List<ItemFactura>? = null
+    final var listaItemFactura: List<ItemFactura>? = null
 
     constructor() {}
     constructor(descripcionFactura: String?, cliente: Cliente?, listaItemFactura: List<ItemFactura>?) {

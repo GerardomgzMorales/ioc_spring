@@ -6,20 +6,24 @@ import kotlin.math.roundToInt
 
 @Getter
 @Setter
-class ItemFactura {
+class ItemFactura(producto: Producto?, cantidad: Int?) {
+
     var producto: Producto? = null
-    var cantidad = 0
+    var cantidad: Int? = null
     var totalPagado = 0.0
 
-    constructor() {}
-    constructor(producto: Producto?, cantidad: Int) {
+    init {
         this.producto = producto
         this.cantidad = cantidad
         totalPagado = calculoProducto()
     }
 
     private fun calculoProducto(): Double {
-        val monto = producto!!.precioProducto * cantidad
-        return (monto * 100.0).roundToInt() / 100.0
+        var estado = 0.0
+        val monto = this.producto?.precioProducto?.times(this.cantidad!!)
+        if (monto != null) {
+            estado = (monto * 100.0).roundToInt() / 100.0
+        }
+        return estado
     }
 }
