@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+
+<h3 th:text="${factura.descripcionFactura}"></h3>
+<br>
+<span>Cliente: <h3
+        th:text="${factura.getCliente().getNombre() + ' ' + factura.getCliente().getApellidos() }"></h3></span>
+<br>
+
+<div th:if="${!factura.listaItemFactura.isEmpty()}">
+    <table>
+        <tr>
+            <th>Nombre producto</th>
+            <th>Precio producto</th>
+            <th>Cantidad de productos comprados</th>
+        </tr>
+        <tr th:each="component : ${factura.listaItemFactura}">
+            <td th:text="${component.getProducto().getNombreProducto()}"></td>
+            <td th:text="${'$' + component.getProducto().getPrecioProducto()}"></td>
+            <td th:text="${component.getCantidad()}"></td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
