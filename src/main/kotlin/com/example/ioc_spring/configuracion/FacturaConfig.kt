@@ -14,10 +14,10 @@ class FacturaConfig {
     @Bean
     fun listaFactura(): MutableList<ItemFactura>? {
         val listaItem = mutableListOf<ItemFactura>()
-        listaItem.add(ItemFactura(Producto("MacBook Pro M1", 23584.22), 77))
-        listaItem.add(ItemFactura(Producto("Xbox one S", 6543.22), 17))
-        listaItem.add(ItemFactura(Producto("Play 5", 12547.22), 99))
-        listaItem.add(ItemFactura(Producto("iPad Air", 74547.22), 177))
+        listaItem.add(ItemFactura(Producto("MacBook Pro M1", 25785.88), 10))
+        listaItem.add(ItemFactura(Producto("Xbox one S", 9599.0), 17))
+        listaItem.add(ItemFactura(Producto("Play 5", 13999.99), 99))
+        listaItem.add(ItemFactura(Producto("iPad Air", 10499.0), 100))
         return listaItem
     }
 }

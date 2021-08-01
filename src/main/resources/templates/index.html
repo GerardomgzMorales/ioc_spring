@@ -20,11 +20,13 @@
             <th>Nombre producto</th>
             <th>Precio producto</th>
             <th>Cantidad de productos comprados</th>
+            <th>Precio a Pagar</th>
         </tr>
         <tr th:each="component : ${factura.listaItemFactura}">
             <td th:text="${component.getProducto().getNombreProducto()}"></td>
             <td th:text="${'$' + component.getProducto().getPrecioProducto()}"></td>
             <td th:text="${component.getCantidad()}"></td>
+            <td th:text="${'$' + component.getTotalPagado()}"></td>
         </tr>
     </table>
 </div>
