@@ -5,23 +5,25 @@ import lombok.Getter
 import lombok.Setter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import org.springframework.web.context.annotation.RequestScope
+import org.springframework.web.context.annotation.SessionScope
+import java.io.Serializable
+
 
 @Component
-@RequestScope
+@SessionScope
 @Getter
 @Setter
-class Factura {
+class Factura : Serializable {
     //@RequestScope mantiene la intancia hata que se destruye con la peticion HTTP
 
     @Value("\${factura.desc}")
-    final var descripcionFactura: String? = null
+    var descripcionFactura: String? = null
 
     @Autowired
-    final var cliente: Cliente? = null
+    var cliente: Cliente? = null
 
     @Autowired
-    final var listaItemFactura: List<ItemFactura>? = null
+    var listaItemFactura: List<ItemFactura>? = null
 
     constructor() {}
     constructor(descripcionFactura: String?, cliente: Cliente?, listaItemFactura: List<ItemFactura>?) {
