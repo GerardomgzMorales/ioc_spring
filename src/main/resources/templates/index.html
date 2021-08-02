@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<h3 th:text="${factura.descripcionFactura}"></h3>
+<h3 th:utext="${factura.descripcionFactura}"></h3>
 <br>
 <span>Cliente: <h3
-        th:text="${factura.getCliente().getNombre() + ' ' + factura.getCliente().getApellidos() }"></h3></span>
+        th:utext="${factura.getCliente().getNombre() + ' ' + factura.getCliente().getApellidos() }"></h3></span>
 <br>
 
 <div th:if="${!factura.listaItemFactura.isEmpty()}">
@@ -23,7 +23,7 @@
             <th>Precio a Pagar</th>
         </tr>
         <tr th:each="component : ${factura.listaItemFactura}">
-            <td th:text="${component.producto.nombreProducto}"></td>
+            <td th:utext="${component.producto.nombreProducto}"></td>
             <td th:text="${component.producto.precioProducto}"></td>
             <td th:text="${component.getCantidad()}"></td>
             <td th:text="${component.totalPagado}"></td>
